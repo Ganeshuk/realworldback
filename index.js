@@ -83,7 +83,7 @@ app.put('/movie/:id', async (req, res) => {
       
   });
 app.get('/',async(req,res)=>{
-    const qurey=`select DISTINCT movieName,moviePoster from list ORDER BY id DESC`
+    const qurey=`SELECT DISTINCT movieName, moviePoster FROM list ORDER BY id DESC`
     const result=await client.query(qurey)
     res.json(result.rows)
 })
