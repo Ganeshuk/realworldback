@@ -83,7 +83,7 @@ app.put('/movie/:id', async (req, res) => {
       
   });
 app.get('/',async(req,res)=>{
-    const qurey=`select * from list ORDER BY id DESC`
+    const qurey=`select DISTINCT movieName,moviePoster from list ORDER BY id DESC`
     const result=await client.query(qurey)
     res.json(result.rows)
 })
@@ -95,7 +95,7 @@ app.get('/movie/:id', async (req, res) => {
     }
   
     try {
-      const query = 'SELECT * FROM list WHERE id = $1';
+      const query = 'SELECT * FROM list WHERE movieName= $1';
       const values = [movieId];
       const result = await client.query(query, values);
   
