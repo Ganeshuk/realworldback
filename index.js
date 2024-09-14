@@ -95,9 +95,7 @@ app.get('/',async(req,res)=>{
 app.get('/movie/:id', async (req, res) => {
     const movieId = req.params.id; // Ensure the ID is parsed as an integer
   
-    if (isNaN(movieId)) {
-      return res.status(400).json({ error: 'Invalid movie ID' });
-    }
+   
   
     try {
       const query = 'SELECT * FROM list WHERE movieName= $1';
