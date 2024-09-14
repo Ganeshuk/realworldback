@@ -106,7 +106,7 @@ app.get('/movie/:id', async (req, res) => {
         return res.status(404).json({ error: 'Movie not found' });
       }
   
-      res.status(200).json(result.rows[0]);
+      res.status(200).json(result.rows);
     } catch (error) {
       console.error('Error fetching movie:', error);
       res.status(500).json({ error: 'An error occurred while fetching the movie' });
